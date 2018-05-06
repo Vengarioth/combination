@@ -12,8 +12,10 @@ export const char = (character) => {
             return parseState.invalid();
         }
 
-        if(character === parseState.getCurrent()) {
-            return parseState.advance();
+        const current = parseState.getCurrent();
+
+        if(character === current) {
+            return parseState.advance(current);
         } else {
             return parseState.invalid();
         }

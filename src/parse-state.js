@@ -27,6 +27,13 @@ export class ParseState {
         return new ParseState(this.source, this.position, this.position + by, result);
     }
 
+    advanceTo(result, to) {
+        if(to < this.position) {
+            throw new Error('cannot advance backwards');
+        }
+        return new ParseState(this.source, this.position, to, result);
+    }
+
     invalid() {
         return new ParseState(this.source, this.position, this.position, undefined, false);
     }

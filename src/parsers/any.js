@@ -5,8 +5,10 @@ export const any = (...parsers) => {
             return parseState.invalid();
         }
 
-        if(parsers.some(parser => parser(parseState).valid)) {
-            return parseState.advance();
+        const parser = parsers.find(parser => parser(parseState).valid);
+
+        if(parser) {
+            return parser(parseState);
         } else {
             return parseState.invalid();
         }

@@ -4,7 +4,7 @@
   "description": "a parser combinator library",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest --watchAll"
+    "test": "jest --watch"
   },
   "author": "Andreas Fischer (http://twitter.com/vengarioth)",
   "license": "MIT",

@@ -6,5 +6,13 @@ export const tag = (characters) => {
         throw new Error(`tag expects characters to be a string with at least length one`);
     }
 
-    return sequence(characterList.map(c => char(c)));
+    const inner = sequence(characterList.map(c => char(c)));
+
+    return (parseState) => {
+        const result = inner(parseState);
+        if(result.valid) {
+            result.result = result.result.join('');
+        }
+        return result;
+    };
 };

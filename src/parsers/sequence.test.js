@@ -7,7 +7,7 @@ test('sequence accepts a sequence matching its parsers', () => {
 
     expect(result.valid).toBe(true);
     expect(result.position).toBe(2);
-    expect(result.getValue()).toEqual(['a', 'b']);
+    expect(result.getResult()).toEqual(['a', 'b']);
 });
 
 test('sequence accepts a sequence matching its parsers starting inside the string', () => {
@@ -18,7 +18,7 @@ test('sequence accepts a sequence matching its parsers starting inside the strin
 
     expect(result.valid).toBe(true);
     expect(result.position).toBe(4);
-    expect(result.getValue()).toEqual(['a', 'b']);
+    expect(result.getResult()).toEqual(['a', 'b']);
 });
 
 test('sequence rejects a sequence not matching its parsers', () => {
@@ -28,7 +28,6 @@ test('sequence rejects a sequence not matching its parsers', () => {
 
     expect(result.valid).toBe(false);
     expect(result.position).toBe(0);
-    expect(result.getValue()).toEqual([]);
 });
 
 test('sequence rejects a sequence too short its parsers', () => {
@@ -38,5 +37,4 @@ test('sequence rejects a sequence too short its parsers', () => {
 
     expect(result.valid).toBe(false);
     expect(result.position).toBe(0);
-    expect(result.getValue()).toEqual([]);
 });

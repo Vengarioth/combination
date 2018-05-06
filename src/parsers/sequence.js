@@ -9,6 +9,7 @@ export const sequence = (parsers) => {
     }
 
     return (parseState) => {
+        let result = [];
 
         let p = parseState;
         for(var i = 0; i < parsers.length; ++i) {
@@ -21,8 +22,10 @@ export const sequence = (parsers) => {
             if(!p.valid) {
                 return parseState.invalid();
             }
+
+            result.push(p.getResult());
         }
 
-        return parseState.advanceBy({}, parsers.length);
+        return parseState.advanceTo(result, p.position);
     };
 };

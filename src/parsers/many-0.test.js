@@ -6,7 +6,8 @@ test('many0 matches until it hits an invalid character', () => {
     const result = parse('aaaaab');
 
     expect(result.valid).toBe(true);
-    expect(result.getValue()).toEqual(['a', 'a', 'a', 'a', 'a']);
+    expect(result.position).toBe(5);
+    expect(result.getResult()).toEqual(['a', 'a', 'a', 'a', 'a']);
 });
 
 test('many0 matches until it hits the end', () => {
@@ -15,7 +16,8 @@ test('many0 matches until it hits the end', () => {
     const result = parse('aaaa');
 
     expect(result.valid).toBe(true);
-    expect(result.getValue()).toEqual(['a', 'a', 'a', 'a']);
+    expect(result.position).toBe(4);
+    expect(result.getResult()).toEqual(['a', 'a', 'a', 'a']);
 });
 
 test('many0 matches an empty list', () => {
@@ -24,5 +26,6 @@ test('many0 matches an empty list', () => {
     const result = parse('');
 
     expect(result.valid).toBe(true);
-    expect(result.getValue()).toEqual([]);
+    expect(result.position).toBe(0);
+    expect(result.getResult()).toEqual([]);
 });

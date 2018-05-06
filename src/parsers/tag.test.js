@@ -7,7 +7,7 @@ test('tag accepts a sequence matching its characters', () => {
 
     expect(result.valid).toBe(true);
     expect(result.position).toBe(2);
-    expect(result.getValue()).toEqual(['a', 'b']);
+    expect(result.getResult()).toEqual('ab');
 });
 
 test('tag accepts a sequence matching its characters starting inside the string', () => {
@@ -18,7 +18,7 @@ test('tag accepts a sequence matching its characters starting inside the string'
 
     expect(result.valid).toBe(true);
     expect(result.position).toBe(4);
-    expect(result.getValue()).toEqual(['a', 'b']);
+    expect(result.getResult()).toEqual('ab');
 });
 
 test('tag rejects a sequence not matching its characters', () => {
@@ -28,7 +28,6 @@ test('tag rejects a sequence not matching its characters', () => {
 
     expect(result.valid).toBe(false);
     expect(result.position).toBe(0);
-    expect(result.getValue()).toEqual([]);
 });
 
 test('tag rejects a sequence too short its characters', () => {
@@ -38,5 +37,4 @@ test('tag rejects a sequence too short its characters', () => {
 
     expect(result.valid).toBe(false);
     expect(result.position).toBe(0);
-    expect(result.getValue()).toEqual([]);
 });

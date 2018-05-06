@@ -7,7 +7,7 @@ test('char accepts the correct character at the current position', () => {
 
     expect(result.valid).toBe(true);
     expect(result.position).toBe(1);
-    expect(result.getValue()).toEqual(['a']);
+    expect(result.getResult()).toEqual('a');
 });
 
 test('char rejects an incorrect character at the current position', () => {
@@ -17,7 +17,6 @@ test('char rejects an incorrect character at the current position', () => {
 
     expect(result.valid).toBe(false);
     expect(result.position).toBe(0);
-    expect(result.getValue()).toEqual([]);
 });
 
 test('char rejects if it reached the end of a string', () => {
@@ -27,7 +26,6 @@ test('char rejects if it reached the end of a string', () => {
 
     expect(result.valid).toBe(false);
     expect(result.position).toBe(0);
-    expect(result.getValue()).toEqual([]);
 });
 
 test('char throws if no characters are provided', () => {

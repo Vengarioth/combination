@@ -7,7 +7,7 @@ test('any accepts a correct character at the current position', () => {
 
     expect(result.valid).toBe(true);
     expect(result.position).toBe(1);
-    expect(result.getValue()).toEqual(['b']);
+    expect(result.getResult()).toEqual('b');
 });
 
 test('any rejects an incorrect character at the current position', () => {
@@ -17,5 +17,4 @@ test('any rejects an incorrect character at the current position', () => {
 
     expect(result.valid).toBe(false);
     expect(result.position).toBe(0);
-    expect(result.getValue()).toEqual([]);
 });

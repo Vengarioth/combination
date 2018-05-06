@@ -1,6 +1,6 @@
 # combination - ES6 zero dependency parser combinator library
 
-Inspired by [nom](https://github.com/Geal/nom).
+Combination is aimed at parsing source code and will implement features specifiaclly for that. Inspired by [nom](https://github.com/Geal/nom).
 
 ## usage
 

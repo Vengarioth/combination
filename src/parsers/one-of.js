@@ -8,8 +8,12 @@ export const oneOf = (characters) => {
         if(parseState.reachedEnd()) {
             return parseState.invalid();
         }
-        if(characterList.some(character => character === parseState.getCurrent())) {
-            return parseState.advance();
+
+        const current = parseState.getCurrent();
+        const character = characterList.find(c => c === current);
+
+        if(character) {
+            return parseState.advance(character);
         } else {
             return parseState.invalid();
         }

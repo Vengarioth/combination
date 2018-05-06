@@ -6,7 +6,8 @@ test('many1 matches until it hits an invalid character', () => {
     const result = parse('aaaaab');
 
     expect(result.valid).toBe(true);
-    expect(result.getValue()).toEqual(['a', 'a', 'a', 'a', 'a']);
+    expect(result.position).toBe(5);
+    expect(result.getResult()).toEqual(['a', 'a', 'a', 'a', 'a']);
 });
 
 test('many1 matches until it hits the end', () => {
@@ -15,7 +16,8 @@ test('many1 matches until it hits the end', () => {
     const result = parse('aaaa');
 
     expect(result.valid).toBe(true);
-    expect(result.getValue()).toEqual(['a', 'a', 'a', 'a']);
+    expect(result.position).toBe(4);
+    expect(result.getResult()).toEqual(['a', 'a', 'a', 'a']);
 });
 
 test('many1 needs at least one match', () => {
@@ -24,7 +26,7 @@ test('many1 needs at least one match', () => {
     const result = parse('bbccaa');
 
     expect(result.valid).toBe(false);
-    expect(result.getValue()).toEqual([]);
+    expect(result.position).toBe(0);
 });
 
 test('many1 does not match an empty list', () => {
@@ -33,5 +35,5 @@ test('many1 does not match an empty list', () => {
     const result = parse('');
 
     expect(result.valid).toBe(false);
-    expect(result.getValue()).toEqual([]);
+    expect(result.position).toBe(0);
 });

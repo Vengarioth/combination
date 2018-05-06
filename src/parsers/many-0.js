@@ -2,21 +2,21 @@ export const many0 = (parser) => {
     return (parseState) => {
 
         let p = parseState;
-        let matches = 0;
+        let results = [];
         while(true) {
             if(p.reachedEnd()) {
                 break;
             }
 
             p = parser(p);
-
+            
             if(!p.valid) {
                 break;
             }
-
-            matches += 1;
+            
+            results.push(p.getResult());
         }
 
-        return parseState.advanceBy({}, matches);
+        return parseState.advanceTo(results, p.position);
     };
 };
